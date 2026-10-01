@@ -9,9 +9,11 @@ const MostrarDetalle = () => {
 
     const [producto, setProducto] = useState(null);
 
+    const API = `${import.meta.env.BASE_URL}/datos/productos.json`;
+
     useEffect(() => {
 
-        fetch("/datos/productos.json")
+        fetch(API)
             .then(respuesta => respuesta.json())
             .then(data => {
                 console.log("Producto:", data);

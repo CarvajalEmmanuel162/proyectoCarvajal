@@ -5,7 +5,8 @@ function Encabezado() {
     <div className={estilo.header}>
       <img
         className={estilo.logo} 
-        src={`$import.meta.env.BASE_URL}favicon.ico`}/>
+        src={`${import.meta.env.BASE_URL}/favicon.ico`}
+      />
       <h1>IRON STRING</h1>
     </div>
   );
