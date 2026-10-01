@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Fender stratocaster",
+        "precio": "590000",
+        "stock": "20",
+        "descripcion": "Cuerpo ergonómico,mástil atornillado de arce y configuración clasica de 3 mocrófonos simples(SSS) junto a un selector de 5 posiciones otorgan a este modelo un sonido brillante.",
+        "Imagen": "https://i.ibb.co/JWYR4NK7/fender-stc.webp"
+    },
+    {
+        "id": 2,
+        "nombre": "Field stratocaster",
+        "precio": "240000",
+        "stock": "15",
+        "descripcion": "Configuración clasica de 3 mocrófonos simples(SSS) junto a un selector de 5 posiciones otorgan a este modelo un sonido brillante. Su cuerpo de madera multilaminado lo hace ideal para largas horas de practicas.",
+        "Imagen": "https://i.ibb.co/bftmKns/field-stc.png"
+    },
+    {
+        "id": 3,
+        "nombre": "Fender champion II",
+        "precio": "348200",
+        "stock": "8",
+      "descripcion": "Ofrece 25 W RMS con un altavoz de 8 pulgadas Fender Special Design, una perilla Voice con diferentes simulaciones de amplificador y efectos digitales como reverb, delay, chorus, trémolo y vibratone, además de TAP Tempo para sincronizar los efectos con el ritmo.",
+        "Imagen": "https://i.ibb.co/zWybwZqZ/amp-Fender.webp"
+    },
+    {
+        "id": 4,
+        "nombre": "Yamaha GA-15",
+        "precio": "336900",
+        "stock": "10",
+      "descripcion": "El Yamaha GA-15 es un amplificador de guitarra de 15 W con altavoz de 6,5 pulgadas, ideal para práctica. Ofrece canales Clean y Drive, ecualización de 3 bandas (graves, medios y agudos) y salida para auriculares, brindando un sonido versátil y fácil de usar para principiantes y ensayos en casa.",
+        "Imagen": "https://i.ibb.co/Mx8vK2K4/amp-Yamaha.png"
+    },
+    {
+        "id": 5,
+        "nombre": "Digitech RP360xp",
+        "precio": "600000",
+        "stock": "5",
+      "descripcion": "El DigiTech RP360XP es una pedalera multiefectos para guitarra con más de 160 efectos, incluyendo simulaciones de amplificadores, gabinetes y pedales. Cuenta con pedal de expresión, looper de 40 segundos, caja de ritmos, afinador, presets editables y conexión USB para grabación, ideal para práctica, estudio y presentaciones en vivo.",
+        "Imagen": "https://i.ibb.co/K4YYPFb/digitech-rp360xp.png"
+    },
+    {
+        "id": 6,
+        "nombre": "Moer GE200",
+        "precio": "590000",
+        "stock": "15",
+      "descripcion": "El Mooer GE200 es una pedalera multiefectos para guitarra con 55 simulaciones de amplificadores, 26 modelos de gabinetes, más de 70 efectos, looper, caja de ritmos y conexión USB para grabación. Su formato compacto y versátil la hace ideal para práctica, estudio y presentaciones en vivo.",
+        "Imagen": "https://i.ibb.co/FqdVT7dY/mooer-ge200.png"
+    }
+]

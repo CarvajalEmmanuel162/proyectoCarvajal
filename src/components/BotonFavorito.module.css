@@ -1,0 +1,20 @@
+.boton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.icono {
+    width: 24px;
+    height: 24px;
+    fill: transparent;
+    stroke: #888;
+    stroke-width: 2;
+    transition: all 0.2s ease;
+}
+
+.activo .icono{
+    fill: #e74c3c;
+    stroke: #e74c3c;
+}

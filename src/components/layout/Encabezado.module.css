@@ -1,0 +1,24 @@
+.header {
+    background-color: olivedrab;
+    color: orange;
+    display: flex;
+    padding: 5px;
+    height: 90px;
+    margin: 0;
+}
+
+.header h1{
+    
+    color:  orange;
+    justify-items: center;
+    width: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo{
+    height: 70px;
+    width: 70px;
+    margin: 10px;
+}

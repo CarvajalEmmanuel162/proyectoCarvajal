@@ -1,0 +1,22 @@
+.nav{
+    list-style: none;
+    background-color: olivedrab;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav li{
+    width: 100px;
+    border: 1px solid black;
+    margin: 2px;
+}
+
+.nav li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.nav li:hover{
+    background-color: orange;
+}

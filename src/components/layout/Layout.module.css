@@ -1,0 +1,10 @@
+.base{
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    justify-items: space-around;
+}
+
+.base outlet{
+    height: 500px;
+}
