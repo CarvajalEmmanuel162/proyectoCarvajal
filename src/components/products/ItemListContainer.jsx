@@ -8,7 +8,7 @@ const ItemListContainer = () => {
     const [error, setError] = useState(null);
     const [cargando, setCargando]= useState(true);
 
-    const API = "./datos/productos.json"
+    const API = `${import.meta.env.BASE_URL}/datos/productos.json`
     useEffect(() => {
         fetch(API)
             .then(res => {

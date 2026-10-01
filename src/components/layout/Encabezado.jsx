@@ -3,7 +3,9 @@ import estilo from "./Encabezado.module.css";
 function Encabezado() {
   return (
     <div className={estilo.header}>
-      <img className={estilo.logo} src="../favicon.ico"/>
+      <img
+        className={estilo.logo} 
+        src={`$import.meta.env.BASE_URL}favicon.ico`}/>
       <h1>IRON STRING</h1>
     </div>
   );
