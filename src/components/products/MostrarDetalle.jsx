@@ -1,32 +1,53 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useCarrito } from "../../context/CarritoContext";
+import { db } from "../../firebase/config";
+import {doc, getDoc } from "firebase/firestore";
 import BotonFavorito from "../BotonFavorito";
 import estilo from "./MostrarDetalle.module.css";
 
 const MostrarDetalle = () => {
-
     const { id } = useParams();
+    const { agregarAlCarrito } = useCarrito();
 
     const [producto, setProducto] = useState(null);
-
-    const API = `${import.meta.env.BASE_URL}/datos/productos.json`;
+    const [cargando, setCargando] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
+        const fetchProducto = async () => {
+            setCargando(true);
+            try {
+                const docRef = doc(db, "productos", id);
+                const docSnap = await getDoc(docRef);
 
-        fetch(API)
-            .then(respuesta => respuesta.json())
-            .then(data => {
-                console.log("Producto:", data);
-                console.log("ID buscado:", Number(id));
+                if (docSnap.exists()) {
+                    setProducto({ id: docSnap.id, ...docSnap.data() });
+                } else {
+                    setError("El producto no existe");
+                }
+            } catch (err) {
+                console.error("Error al obtener producto: ", err);
+                setError("Error al cargar el producto");
+            } finally {
+                setCargando(false);
+            }
+        };
 
-                const productoEncontrado = data.find(
-                    producto => producto.id === Number(id)
-                );
-
-                setProducto(productoEncontrado);
-            });
-
+        fetchProducto();
     }, [id]);
+
+    const manejarAgregarAlCarrito =()  => {
+        agregarAlCarrito({ producto, cantidad: 1 });
+    };
+
+    if (cargando) {
+        return <div>Cargando detalle del producto...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
     if (!producto) {
         return <p>Producto no encontrado</p>;
@@ -36,7 +57,7 @@ const MostrarDetalle = () => {
         <div className={estilo.detalle}>
             <div className={estilo.imagen}>
                 <img
-                    src={producto.Imagen}
+                    src={producto.imagen}
                     alt={producto.nombre}
                 />
             </div>
@@ -45,7 +66,7 @@ const MostrarDetalle = () => {
                 <p className={estilo.precio}>Precio: ${producto.precio}</p>
                 <p>Descripción: {producto.descripcion}</p>
                 <BotonFavorito />
-                <button>Agregar al carrito</button>
+                <button onClick={manejarAgregarAlCarrito}>Agregar al carrito</button>                
             </div>
             <div className={estilo.botones}></div>
         </div>

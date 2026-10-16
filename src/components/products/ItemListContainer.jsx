@@ -1,28 +1,44 @@
 import { useEffect, useState } from "react";
-import ItemList from "./ItemList"
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/config";
+import ItemList from "./ItemList";
 import FormProductoContainer from "./FormProductoContainer";
 import estilo from "./ItemListContainer.module.css";
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState(null);
-    const [cargando, setCargando]= useState(true);
+    const [cargando, setCargando] = useState(true);
 
-    const API = `${import.meta.env.BASE_URL}/datos/productos.json`;
     useEffect(() => {
-        fetch(API)
-            .then(res => {
-                if(!res.ok) {
-                    throw new Error("No se pudo cargar la información de los producto");
-                }
-                return res.json();
-            })
-            .then(datos => setProductos(datos))
-            .catch(error => console.log(error))
-            .finally(() => {
+        const obtenerProductos = async () => {
+            try {
+                const consulta = await getDocs(
+                    collection(db, "productos")
+                );
+
+                const datos = consulta.docs.map(documento => ({
+                    ...documento.data(),
+                    id: documento.id
+                }));
+
+                setProductos(datos);
+            } catch (error) {
+                setError(error.message);
+            } finally {
                 setCargando(false);
-            })
-    }, [])
+            }
+        };
+
+        obtenerProductos();
+    }, []);
+
+    if (cargando)
+        return <div>Cargando productos...</div>;
+
+    if (error)
+        return <div>Error: {error}</div>
+
     return (
         <div className={estilo.cuadro}>
             <FormProductoContainer />

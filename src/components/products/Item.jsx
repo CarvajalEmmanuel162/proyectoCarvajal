@@ -3,7 +3,7 @@ import BotonFavorito from "../BotonFavorito";
 import estilo from "./Item.module.css";
 import { Link } from "react-router-dom";
 
-const Item = ({ id, nombre, precio, Imagen }) => {
+const Item = ({ id, nombre, precio, imagen }) => {
     const [contador, setContador] = useState(0);
     const incrementar = () => { setContador(contador + 1) };
     const decrementar = () => {
@@ -15,18 +15,19 @@ const Item = ({ id, nombre, precio, Imagen }) => {
 
     return (
         <div className={estilo.card}>
+            <Link to={`/productos/${id}`}>
             <h2>{nombre}</h2>
             <h2>${precio}</h2>
-            <img className={estilo.foto} src={Imagen} alt={nombre} />
+            <img className={estilo.foto} src={imagen} alt={nombre} />
             <div className={estilo.botones}>
                 <BotonFavorito />
                 <button onClick={decrementar}> - </button>
                 <p>cantidad: {contador}</p>
                 <button onClick={incrementar}> + </button>
 
-                <Link to={`/productos/${id}`}>Detalle</Link>
-            </div>
+                
+            </div></Link>
         </div>
-    )
-}
+    );
+};
 export default Item;
