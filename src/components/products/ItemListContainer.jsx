@@ -13,6 +13,31 @@ const ItemListContainer = () => {
     useEffect(() => {
         const obtenerProductos = async () => {
             try {
+                const productosRef = collection(db, "productos");
+                const respuesta = await getDocs(productosRef);
+
+                const listaProductos = respuesta.docs.map(doc => ({
+                    ...doc.data(),
+                    id: doc.id,
+                }));
+
+                setProductos(listaProductos);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setCargando(false);
+            }
+        };
+
+        obtenerProductos();
+    }, []);
+
+    
+
+/*
+    useEffect(() => {
+        const obtenerProductos = async () => {
+            try {
                 const consulta = await getDocs(
                     collection(db, "productos")
                 );
@@ -32,20 +57,20 @@ const ItemListContainer = () => {
 
         obtenerProductos();
     }, []);
+*/
+if (cargando)
+    return <div>Cargando productos...</div>;
 
-    if (cargando)
-        return <div>Cargando productos...</div>;
+if (error)
+    return <div>Error: {error}</div>
 
-    if (error)
-        return <div>Error: {error}</div>
+return (
+    <div className={estilo.cuadro}>
+        <FormProductoContainer />
+        <ItemList productos={productos} />
+    </div>
 
-    return (
-        <div className={estilo.cuadro}>
-            <FormProductoContainer />
-            <ItemList productos={productos} />
-        </div>
-
-    )
+)
 }
 
 export default ItemListContainer;
