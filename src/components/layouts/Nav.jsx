@@ -3,10 +3,12 @@ import estilo from "./Nav.module.css"
 
 const Nav = () => {
     return (
-        <ul className={estilo.nav}>
-            <li><Link to="/" > Inicio </Link></li>
-            <li><Link to= "/productos"> Productos</Link></li>
-        </ul>
+        <nav className={estilo.nav}>
+            <ul className={estilo.lista}>
+                <li><Link to="/" className={estilo.listado}> Inicio </Link></li>
+                <li><Link to="/productos" className={estilo.listado}> Productos</Link></li>
+            </ul>
+        </nav>
     )
 }
 export default Nav;

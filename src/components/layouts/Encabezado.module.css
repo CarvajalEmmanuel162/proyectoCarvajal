@@ -7,9 +7,8 @@
     margin: 0;
 }
 
-.header h1{
-    
-    color:  orange;
+.header h1 {
+    color: orange;
     justify-items: center;
     width: auto;
     display: flex;
@@ -17,8 +16,56 @@
     margin-right: auto;
 }
 
-.logo{
+.logo {
     height: 70px;
     width: 70px;
     margin: 10px;
+    border-radius: 5px; 
+}
+
+.carrito {
+    display: flex;
+    text-decoration: none;
+    border: 2px solid orange;
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+.botonCarrito {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 4px;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background: RGB(0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.botonCarrito svg {
+    width: 70%;
+    height: 70%;
+    max-width: 100%;
+    max-height: 100px;
+    color: orange;
+}
+
+.item {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    font-size: 50px;
+    top: 35;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background-color: aliceblue;
+    border-radius: 100%;
+    color: RGB(0, 0, 0);
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
 }
